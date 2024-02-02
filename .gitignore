@@ -3,3 +3,8 @@
 outputs
 ipynb_checkpoints
 sm-pr.code-workspace
+
+# Local .terraform directories
+**/.lambda_layer/*
+**/.lambda_layer.*
+**/lambda_layer/*

@@ -83,7 +83,7 @@ Resources:
         S3Bucket: manju-ml-test
         S3Key: sagemaker_mlops_dev/lambda-github-workflow-trigger.zip
       Layers:
-        - !Sub arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:layer:python39-github-arm64:1
+        - !Sub arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:layer:python311-github-arm64:1
       Architectures:
         - arm64
       Environment:

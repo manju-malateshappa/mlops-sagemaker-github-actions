@@ -152,9 +152,14 @@ def get_pipeline(
     model_approval_status = ParameterString(
         name="ModelApprovalStatus", default_value="PendingManualApproval"
     )
+    # input_data = ParameterString(
+    #     name="InputDataUrl",
+    #     default_value=f"s3://sagemaker-servicecatalog-seedcode-{region}/dataset/abalone-dataset.csv",
+    # )
+
     input_data = ParameterString(
         name="InputDataUrl",
-        default_value=f"s3://sagemaker-servicecatalog-seedcode-{region}/dataset/abalone-dataset.csv",
+        default_value=f"s3://manju-ml-test/sagemaker_mlops_dev/dataset/abalone.csv",
     )
 
     # processing step for feature engineering

@@ -153,7 +153,7 @@ def get_pipeline(
         name="ModelApprovalStatus", default_value="PendingManualApproval"
     )
 
-    # Uncomment the below config and update the s3 path with respective uri for prod push.
+    # Uncomment the below config and update the s3 path with respective uri for prod push..
     # input_data = ParameterString(
     #     name="InputDataUrl",
     #     default_value=f"s3://sagemaker-servicecatalog-seedcode-{region}/dataset/abalone-dataset.csv",

@@ -154,17 +154,17 @@ def get_pipeline(
     )
 
     # Uncomment the below config and update the s3 path with respective uri for prod push...
-    # input_data = ParameterString(
-    #     name="InputDataUrl",
-    #     default_value=f"s3://sagemaker-servicecatalog-seedcode-{region}/dataset/abalone-dataset.csv",
-    # )
+    input_data = ParameterString(
+        name="InputDataUrl",
+        default_value=f"s3://sagemaker-servicecatalog-seedcode-v1-{region}/dataset/abalone-dataset.csv",
+    )
 
 
     # Testing config. Comment/remove this for prod push.
-    input_data = ParameterString(
-        name="InputDataUrl",
-        default_value=f"s3://manju-ml-test/sagemaker_mlops_dev/dataset/abalone.csv",
-    )
+    # input_data = ParameterString(
+    #     name="InputDataUrl",
+    #     default_value=f"s3://manju-ml-test/sagemaker_mlops_dev/dataset/abalone.csv",
+    # )
 
     # processing step for feature engineering
     sklearn_processor = SKLearnProcessor(

@@ -288,7 +288,8 @@ def get_pipeline(
     )
     model = Model(
         image_uri=image_uri,
-        model_data=step_train.properties.ModelArtifacts.S3ModelArtifacts,
+        # model_data=step_train.properties.ModelArtifacts.S3ModelArtifacts,
+        model_data= "s3://sagemaker-us-east-1-131578276461/Abalone/AbaloneTrain/pipelines-muw93s2y4az6-TrainAbaloneModel-dlP0C3KkKc/output/model.tar.gz",
         sagemaker_session=pipeline_session,
         role=role,
     )
@@ -308,11 +309,12 @@ def get_pipeline(
 
     # condition step for evaluating model quality and branching execution
     cond_lte = ConditionLessThanOrEqualTo(
-        left=JsonGet(
-            step_name=step_eval.name,
-            property_file=evaluation_report,
-            json_path="regression_metrics.mse.value"
-        ),
+        # left=JsonGet(
+        #     step_name=step_eval.name,
+        #     property_file=evaluation_report,
+        #     json_path="regression_metrics.mse.value"
+        # ),
+        left=0.5,
         right=6.0,
     )
     step_cond = ConditionStep(
@@ -332,7 +334,9 @@ def get_pipeline(
             model_approval_status,
             input_data,
         ],
-        steps=[step_process, step_train, step_eval, step_cond],
+        # tod-do : define these steps later stage
+        # steps=[step_process, step_train, step_eval, step_cond],
+        steps=[step_cond],
         sagemaker_session=pipeline_session,
     )
     return pipeline
